@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+/*import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { Loc } from 'redux-react-i18n';
 import SocialNetwork from './SocialNetwork';
@@ -34,6 +34,41 @@ class Header extends Component {
             </Grid>
         );
     }
+}*/
+
+import React, { Component } from 'react';
+import { Grid, Row, Col } from 'react-flexbox-grid';
+
+class Header extends Component {
+  render() {
+    return(
+      <Grid fluid>
+                <Row >
+                    <Col xs={12}>
+                        <header>
+                            <Row center="xs">
+                                <Col xs={12} sm={10} md={10} lg={6} className="header-container">
+                                    <Row>
+                                        <Col xs className="left-side">
+                                            <div className="Avatar">
+                                              <img src="" alt="Your Avatar"/>
+                                            </div>
+                                        </Col>
+                                        <Col xs className="right-side">
+                                            <div className="right-side-container">
+                                                <h1>Eugeniy Tuliakov</h1>
+                                                <p>в сети с 02.05.2017</p>
+                                            </div>
+                                        </Col>
+                                    </Row>
+                                </Col>
+                            </Row>
+                        </header>
+                    </Col>
+                </Row>
+            </Grid>
+    )
+  }
 }
 
 export default Header;
