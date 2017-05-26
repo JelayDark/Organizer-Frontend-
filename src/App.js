@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
-import Navigation from './components/Navigation';
-// import TSlider from './components/Slider';
+// import Navigation from './components/Navigation';
 import Calendar from './components/MainCalendar';
 import Contacts from './components/Contacts';
 import ToDo from './components/ToDoList';
