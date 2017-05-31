@@ -1,23 +1,28 @@
 .navigation-container {
-    border-top: 4px solid #efcd47;
-    border-bottom: 2px solid #efcd47;
-    background: #000;
+    // border-top: 4px solid #efcd47;
+    // border-bottom: 2px solid #efcd47;
+    // background: #000;
 }
 
 .navigation {
     ul {
+        border: 1px solid black;
+        // line-height: 40px;
         display: flex;
         padding-left: 0;
         justify-content: space-between;
         width: 100%;
-        li {
+        li { 
+            // line-height: 40px;
+            padding: 10px 20px;
             font-size: 20px;
+            cursor: pointer;
             span {
-                color: #fff;
+                color: #000;
                 text-decoration: none;
             }
             &.active {
-                background-color: yellow;
+                background-color: lightcyan;
             }
 
         }

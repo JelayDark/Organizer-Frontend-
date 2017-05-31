@@ -1,6 +1,7 @@
 import React from 'react';
 import CreateToDo from './components/Create-todo';
 import ToDosList from './components/Todos-list';
+import ModalButton from './components/ModalButton';
 import _ from 'lodash';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
@@ -49,6 +50,9 @@ export default class ToDo extends React.Component {
                                           saveTask={this.saveTask.bind(this)}
                                           deleteTask={this.deleteTask.bind(this)}
                                         />
+                                      </div>
+                                      <div>
+                                        <ModalButton/>
                                       </div>
                                         </Col>
                                         </Row>

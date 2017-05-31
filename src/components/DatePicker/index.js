@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import classNames from 'classnames';
+// import classNames from 'classnames';
 import TypePicker from './components/TypePicker';
 
 import 'react-datepicker/dist/react-datepicker.css';

@@ -1,10 +1,16 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
-import films from './films';
-import { i18nReducer as i18n} from 'redux-react-i18n';
+import todos from './todos';
+import visibilityFilter from './visibilityFilter';
+import adminPanel from './adminPanel';
+// import listsPage from './listsPage';
+
 
 export default combineReducers({
   routing: routerReducer,
-  i18n,
-  films
+  todos,
+  visibilityFilter,
+  adminPanel,
+  // listsPage
+
 })

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import load from './utils/load';
-import Button from './components/Button';
+// import Button from './components/Button';
 import UserList from './components/UserList';
 import ActiveUser from './components/ActiveUser';
 import SearchBar from './components/SearchBar';
@@ -16,6 +16,7 @@ export default class Contacts extends Component {
     super(props);
     //Устанавливаем состояние
     this.state = {
+      // modal: false,
       data: null,
       active: 0,
       term: ''
@@ -47,7 +48,7 @@ export default class Contacts extends Component {
                             <Col xs={12}>
                                     <Row center="xs">
                                     <Col xs={10}>
-                                    <AddUser/>
+                          
                                         <div className="app container-fluid">
                                           <div className="row">
                                             <div className="col-sm-12">
@@ -70,13 +71,17 @@ export default class Contacts extends Component {
                                           </div>
 
                                           <div className="row">
-                                            <div className="col-sm-4 col-md-3 col-lg-2">
-                                              <ActiveUser data={this.state.data} active={this.state.active} />
+                                            <div className="col-md-3 col-lg-3"> 
+                                              <AddUser/>
                                             </div>
-                                            <div className="col-sm-8 col-md-9 col-lg-10">
+                                            <div className="col-sm-8 col-md-6 col-lg-6">
                                               <UserList data={this.state.data} update={this.updateData.bind(this)} />
                                             </div>
+                                            <div className="col-sm-4 col-md-3 col-lg-3">
+                                              <ActiveUser data={this.state.data} active={this.state.active} />
+                                            </div>
                                           </div>
+                                          
                                         </div>
                                   </Col>
                         </Row>

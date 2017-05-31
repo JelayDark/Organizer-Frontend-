@@ -1,17 +1,45 @@
-import React from 'react';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*import React from 'react';
 
 export default ({data, active}) => {
   if(!data || !data[active]) {return <h3>Nothing Found =(</h3>;}
 
-    const user = data[active];
+    const list = data[active];
 
   return (
-    <div className="thimbnail">
-      <img src={`images/${user.image}.svg`} alt=""/>
-
       <div className="thimbnail-caption">
         <h3>{user.name}</h3>
+
         <table className="user-info table table-responsive">
+            <thead>
+                <tr>
+                    <th>
+                        list.name
+                    </th>
+                </tr>
+            </thead>
           <tbody>
             <tr>
               <td>Age:</td>
@@ -30,6 +58,5 @@ export default ({data, active}) => {
 
         <p><b>His own phrase:</b> {user.phrase}</p>
       </div>
-    </div>
   );
-};
+};*/

@@ -9,7 +9,7 @@ export default ({data, update}) => {
   }
 
   const users = data.map((user, index) => {
-    return (<UserData user={user} index={index} update={update} />);
+    return (<UserData key={index} user={user} index={index} update={update} />);
   });
 
   return (

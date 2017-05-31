@@ -1,4 +1,5 @@
 import React from 'react';
+// import ReactDOM, {render} from 'react-dom';
 import ReactDOM from 'react-dom';
 
 import { Provider } from 'react-redux'
@@ -11,9 +12,9 @@ import { syncHistoryWithStore } from 'react-router-redux';
 
 import reducer from './reducers';
 
-import { i18nActions } from 'redux-react-i18n';
-import languages from './temp/languages';
-import dictionaries from './temp/dictionaries';
+// import { i18nActions } from 'redux-react-i18n';
+// import languages from './temp/languages';
+// import dictionaries from './temp/dictionaries';
 
 import './styles/dist/normalize.css';
 import './styles/dist/main.min.css';
@@ -21,19 +22,17 @@ import './styles/dist/main.min.css';
 import App from './App';
 import NotFound from './components/NotFound';
 import Contacts from './components/Contacts';
+import Login from './components/Login';
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 
 const history = syncHistoryWithStore(browserHistory, store);
 
-store.dispatch(i18nActions.setDictionaries(dictionaries));
-store.dispatch(i18nActions.setLanguages(languages));
-store.dispatch(i18nActions.setCurrentLanguage('ru-RU'));
-
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={App} />
+      <Route path="/login" component={Login} />
       <Route path="/contacts" component={Contacts} />
       <Route path="*" component={NotFound} />
     </Router>

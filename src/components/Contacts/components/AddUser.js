@@ -6,6 +6,9 @@ export default class AddUser extends Component {
         this.state = {
             errors: null
         }
+        this.addUser = this.addUser.bind(this);
+        this.addAvatar = this.addAvatar.bind(this);
+
     }
 
     //При клике на кнопку добавить пользователя в список контактов
@@ -23,12 +26,12 @@ export default class AddUser extends Component {
         return(
             <div className="left-side">
                     <form onSubmit={this.addUser}>
-                        <label>Phone Number: <input type="text" placeholder="Phone Number" /></label>
-                        <label>E-mail: <input type="email" placeholder="forexample@tyt.ru" /></label>
-                        <label>Name: <input type="text" placeholder="Name" /></label>
-                        <label>Surname: <input type="text" placeholder="Surname" /></label>
-                        <label>Age: <input type="text" placeholder="Age" /></label>
-                        <label>Company: <input type="text" placeholder="Company" /></label>
+                        <div><label>Phone Number: <input type="text" placeholder="Phone Number" /></label></div>
+                        <div><label>E-mail: <input type="email" placeholder="forexample@tyt.ru" /></label></div>
+                        <div><label>Name: <input type="text" placeholder="Name" /></label></div>
+                        <div><label>Surname: <input type="text" placeholder="Surname" /></label></div>
+                        <div><label>Age: <input type="text" placeholder="Age" /></label></div>
+                        <div><label>Company: <input type="text" placeholder="Company" /></label></div>
                         <div className="but-left"><button onClick={this.addAvatar}>Add Avatar</button></div>
                         <div className="but-submit"><button type="submit">Add User</button></div>
                         <div className="errors">
