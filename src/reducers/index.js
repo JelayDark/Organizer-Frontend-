@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
-import todos from './todos';
+// import todos from './todos';
 import visibilityFilter from './visibilityFilter';
 import adminPanel from './adminPanel';
 // import listsPage from './listsPage';
@@ -8,7 +8,7 @@ import adminPanel from './adminPanel';
 
 export default combineReducers({
   routing: routerReducer,
-  todos,
+  // todos,
   visibilityFilter,
   adminPanel,
   // listsPage

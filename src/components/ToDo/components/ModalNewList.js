@@ -27,13 +27,13 @@ class ModalNewList extends Component {
     }
 
     onSubmit(e) {
-        console.log('aaaa');
+        // console.log('aaaa');
         e.preventDefault();
 
         if(this.isValid()) {
             let list = {
                 name: this.state.name,
-                needs: [{}],
+                needs: [],
 
             }
 

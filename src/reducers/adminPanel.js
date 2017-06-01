@@ -2,7 +2,8 @@ const initialState = {
   login: false,
   users: [],
   lists: [],
-  needs: []
+  needs: [],
+  active: []
 };
 
 export default function adminPanel(state = initialState, action) {
@@ -29,8 +30,25 @@ export default function adminPanel(state = initialState, action) {
     } else if(action.type === 'GET_NEEDS') {
       return {
         ...state,
-        needs: action.payload
+        needs: action.payload.needs,
+        active: action.payload._id
+
       }
+    } else if(action.type === 'ADD_TODO') {
+        return Object.assign({}, state, {
+        needs: [
+            ...state.needs,
+            {
+              _id: action.payload._id,
+              task: action.payload.task,
+              isCompleted: action.payload.isCompleted
+            }
+          ]
+       })
+    } else if(action.type === 'TOGGLE_TODO') {
+      // return Object.assign({}, state, {
+      //   completed: !state.completed
+      // })
     }
 
 
