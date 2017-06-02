@@ -16,7 +16,7 @@ export const createList = (data) => dispatch => {
 export const CREATE_LIST = 'CREATE_LIST';
 
 export const getNeeds = (id) => dispatch => {
-    axios.post('/api/todolists/needs/'+ id).then((response) => {
+    axios.post('/api/needs/'+ id).then((response) => {
         console.log(response);
         dispatch({type: 'GET_NEEDS', payload: response.data});
     }).catch((err) => {
@@ -35,3 +35,18 @@ export const toggleTodo = (todo) => dispatch => {
 }
 
 export const TOGGLE_TODO = "TOGGLE_TODO";
+
+export const deleteTodo = (todo) => dispatch => {
+    return axios.post('/api/needs/delete/' + todo.id, todo);
+}
+
+export const DELETE_TODO = "DELETE_TODO";
+
+export const deleteList = (id, index) => dispatch => {
+      axios.post('/api/todolists/delete/' + id).then((response) => {
+            console.log(response);
+            dispatch({type: 'DELETE_LIST', payload: index});
+      }).catch((err) => {
+            console.log(err);
+      })
+}

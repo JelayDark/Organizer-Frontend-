@@ -41,7 +41,7 @@ class AddToDo extends Component {
             this.props.addTodo(todo).then((response) =>{
                 console.log(response);
                 const store = this.context.store;
-                store.dispatch({type: "ADD_TODO", payload: response.data}); 
+                store.dispatch({type: "ADD_TODO", payload: response.data.value.needs[response.data.value.needs.length-1]}); 
             }).catch((err) => {
                 console.log(err);
             })
@@ -56,10 +56,12 @@ class AddToDo extends Component {
     render() {
             return (
                         <form onSubmit={this.onSubmit}>
-                            <div><input onChange={this.onChange} type="text" placeholder="What do u need 2 do?" name="task"/></div>
                             <div>
+                                <input onChange={this.onChange} type="text" placeholder="What do u need 2 do?" name="task"/>
                                 <button type="submit">Add ToDo</button>
                             </div>
+                            {/*<div>*/}
+                            {/*</div>*/}
                         </form>
             )
     }

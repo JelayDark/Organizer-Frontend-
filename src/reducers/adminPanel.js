@@ -15,7 +15,8 @@ export default function adminPanel(state = initialState, action) {
     } else if (action.type === 'GET_LISTS') {
         return {
             ...state,
-            lists: action.payload
+            lists: action.payload,
+            active: action.payload[0]
         }
     } else if(action.type === 'CREATE_LIST') {
         return Object.assign({}, state, {
@@ -39,16 +40,29 @@ export default function adminPanel(state = initialState, action) {
         needs: [
             ...state.needs,
             {
-              _id: action.payload._id,
               task: action.payload.task,
               isCompleted: action.payload.isCompleted
             }
           ]
        })
     } else if(action.type === 'TOGGLE_TODO') {
-      // return Object.assign({}, state, {
-      //   completed: !state.completed
-      // })
+      return {
+        ...state,
+        needs: action.payload
+      }
+    } else if(action.type === "DELETE_TODO") {
+      return {
+        ...state,
+        needs: action.payload
+      }
+    } else if(action.type === "DELETE_LIST") {
+        return {
+              ...state,
+              lists: [
+                 ...state.lists.slice(0, action.payload),
+                 ...state.lists.slice(action.payload + 1)
+              ]
+            }
     }
 
 
