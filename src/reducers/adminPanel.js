@@ -1,6 +1,5 @@
 const initialState = {
   login: false,
-  users: [],
   lists: [],
   needs: [],
   active: []

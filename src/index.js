@@ -21,7 +21,7 @@ import './styles/dist/main.min.css';
 
 import App from './App';
 import NotFound from './components/NotFound';
-import Contacts from './components/Contacts';
+// import Contacts from './components/ContactsOLD';
 import Login from './components/Login';
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
@@ -33,7 +33,7 @@ ReactDOM.render(
     <Router history={history}>
       <Route path="/" component={App} />
       <Route path="/login" component={Login} />
-      <Route path="/contacts" component={Contacts} />
+      {/*<Route path="/contacts" component={Contacts} />*/}
       <Route path="*" component={NotFound} />
     </Router>
   </Provider>,

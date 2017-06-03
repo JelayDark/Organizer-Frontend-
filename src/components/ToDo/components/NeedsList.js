@@ -8,8 +8,8 @@ import PropTypes from 'prop-types';
 
 class NeedsList extends Component {
 
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
 
     this.state = {
       // needs: this.props.needs,

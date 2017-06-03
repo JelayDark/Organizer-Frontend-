@@ -1,6 +1,7 @@
 import React from 'react';
 // import ToDoList from './ToDoList';
-import Contacts from './Contacts';
+import Contacts from './ContactsOLD';
+import ContactsApp from './Contacts';
 import Calendar from './MainCalendar';
 import DatePage from './DatePicker';
 import ToDoApp from './ToDo';
@@ -20,7 +21,8 @@ const Page = (props) => {
             el = <ToDoApp />;
             break;
         case 3:
-            el = <Contacts data="data.json"/>;
+            el = <Contacts />;
+            // el = <ContactsApp />;
             break;
         default: 
             el = (<div>Nothing here...</div>);
