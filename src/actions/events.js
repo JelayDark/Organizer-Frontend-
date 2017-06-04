@@ -29,10 +29,10 @@ export const editEvent = (event) => dispatch => {
     })
 }
 
-export const deleteEvent = (id) => dispatch => {
+export const deleteEvent = (id, index) => dispatch => {
       axios.post('/api/events/delete/' + id).then((response) => {
             console.log(response);
-            dispatch({type: 'DELETE_EVENT', payload: response.data});
+            dispatch({type: 'DELETE_EVENT', payload: index});
       }).catch((err) => {
             console.log(err);
       })

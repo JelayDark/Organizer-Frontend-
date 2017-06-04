@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import { addEvent } from '../../actions/events';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import AllEvents from './components/AllEvents';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -91,7 +92,12 @@ class DatePicker extends Component {
                                                 </div>
                                             </form>  
                                         </div>
+
+                                        <div>
+                                            <AllEvents />
+                                        </div>
                                         </Col>
+
                                 </Row>
                             </Col>
                         </Row>

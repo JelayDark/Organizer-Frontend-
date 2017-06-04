@@ -20,6 +20,9 @@ constructor (props) {
   handleChangeStart (date) {
     const evDate = date.format("YYYY/MM/DD");
     this.setState({startDate: date});
+    if(date > this.state.endDate){
+      this.setState({endDate: date});
+    }
     this.props.update({start: evDate});
   }
 
@@ -48,6 +51,7 @@ constructor (props) {
                         startDate={this.state.startDate}
                         endDate={this.state.endDate}
                         onChange={this.handleChangeEnd}
+                        minDate={this.state.startDate}
                     />
                 </div>
       );

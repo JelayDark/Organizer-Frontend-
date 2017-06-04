@@ -49,18 +49,19 @@ class Calendar extends Component {
                                     <Row center="xs">
                                     <Col xs={10}>
                                         <div className='container-calendar'>
+                                            <Reminder />
                                             <BigCalendar className='calendar'
                                                 popup
-                                                selectable
                                                 scrollToTime={new Date(1970, 1, 1, 6)}
                                                 events={this.props.events}
                                                 onSelectEvent={this.showEvent}
                                                 views={['month','agenda']}
-                                                onSelectSlot={(slotInfo) => alert(
+                                                />
+                                                {/*onSelectSlot={(slotInfo) => alert(
                                                     `selected slot: \n\nstart ${slotInfo.start.toLocaleString()} ` +
                                                     `\nend: ${slotInfo.end.toLocaleString()}`
-                                                )}
-                                                />
+                                                )}*/}
+                                                {/*selectable*/}
                                                 {/*onSelectEvent={event => alert(event.title)}*/}
                                                 {/*defaultDate={new Date(2015, 3, 12)}*/}
                                         </div>
@@ -71,7 +72,6 @@ class Calendar extends Component {
                                                 update={this.updateData.bind(this)}
                                                 editing={this.state.editing}
                                             />
-                                            <Reminder />
                                         </Col>
                                 </Row>
                             </Col>

@@ -29,7 +29,10 @@ export default function eventsPanel(state = initialState, action) {
     } else if(action.type === "DELETE_EVENT") {
         return {
               ...state,
-              events: action.payload
+              events: [
+                 ...state.events.slice(0, action.payload),
+                 ...state.events.slice(action.payload + 1)
+              ]
             }
     }
 

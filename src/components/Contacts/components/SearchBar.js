@@ -1,11 +1,15 @@
 import React from 'react';
 
-export default ({term, data, update}) => {
+export default ({term, data, update, initialData}) => {
   const dataSearch = e => {
     const value = e.target.value.toLowerCase();
 
-    const filter = data.filter(user => {
-      return user.name.toLowerCase().includes(value);
+    const filter = initialData.filter(user => {
+      if(user.name.toLowerCase().includes(value)) {
+          return user.name.toLowerCase().includes(value);
+      } else if(user.company.toLowerCase().includes(value)) {
+          return user.company.toLowerCase().includes(value);
+      }
     });
 
     update({

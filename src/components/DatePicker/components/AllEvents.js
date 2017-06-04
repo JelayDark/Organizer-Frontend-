@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
-import UserList from './components/UserList';
-import ActiveUser from './components/ActiveUser';
-import SearchBar from './components/SearchBar';
-import Toolbar from './components/Toolbar';
-import AddUser from './components/AddUser';
+// import UserList from './components/UserList';
+// import ActiveUser from './components/ActiveUser';
+// import SearchBar from './components/SearchBar';
+// import Toolbar from './components/Toolbar';
+// import AddUser from './components/AddUser';
+import EventList from './modal-components/EventList';
+import SearchBar from './modal-components/SearchBar';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import { getContacts } from '../../actions/contacts';
+// import { getContacts } from '../../actions/contacts';
 import {connect} from 'react-redux';
 
-class Contacts extends Component {
+class AllEvents extends Component {
   constructor(props) {
     super(props);
     //Устанавливаем состояние
     this.state = {
       data: null,
-      active: 0,
       term: ''
     };
     // сразу загружаем данные
@@ -27,13 +28,6 @@ class Contacts extends Component {
   updateData(config) {
     this.setState(config);
   }
-
-  // deleteUser(id, index) {
-  //   this.props.deleteUser(id, index);
-  //   setTimeout(() => this.updateData({data: this.props.data}), 150);
-    
-  // }
-
 
   render() {
 
@@ -57,32 +51,12 @@ class Contacts extends Component {
                                             </div>
                                           </div>
 
-                                          <div className="row">
-                                            <div className="col-sm-12">
-                                              <Toolbar
-                                                initialData={initialData}
-                                                data={this.state.data}
-                                                update={this.updateData.bind(this)}
-                                              />
-                                            </div>
-                                          </div>
 
                                           <div className="row">
-                                            <div className="col-md-3 col-lg-3"> 
-                                              <AddUser update={this.updateData.bind(this)}/>
-                                            </div>
                                             <div className="col-sm-8 col-md-6 col-lg-6">
-                                              <UserList 
+                                              <EventList 
                                                        data={this.state.data} 
                                                        update={this.updateData.bind(this)} 
-                                                       active={this.state.active}
-                                                      />
-                                            </div>
-                                            <div className="col-sm-4 col-md-3 col-lg-3">
-                                              <ActiveUser 
-                                                        data={this.state.data} 
-                                                        active={this.state.active} 
-                                                        update={this.updateData.bind(this)} 
                                                       />
                                             </div>
                                           </div>
@@ -100,9 +74,7 @@ class Contacts extends Component {
 
 export default connect(
   state => ({
-    data: state.contactsPanel.users,
-    // active: state.contactsPanel.active
+    data: state.eventsPanel.events,
   }), 
-  dispatch => ({
-      getContacts: dispatch(getContacts()),
-}))(Contacts)
+
+)(AllEvents)
