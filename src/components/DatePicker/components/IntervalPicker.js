@@ -18,11 +18,15 @@ constructor (props) {
 }
 
   handleChangeStart (date) {
-    this.setState({startDate: date})
+    const evDate = date.format("YYYY/MM/DD");
+    this.setState({startDate: date});
+    this.props.update({start: evDate});
   }
 
   handleChangeEnd (date) {
-    this.setState({endDate: date})
+    const evDate = date.format("YYYY/MM/DD");
+    this.setState({endDate: date});
+    this.props.update({end: evDate});
   }
 
 

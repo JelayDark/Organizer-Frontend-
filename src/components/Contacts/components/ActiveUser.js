@@ -14,6 +14,7 @@ class ActiveUser extends Component {
           phone: '',
           company: '',
           email: '',
+          about: ''
     }
     console.log("ACTIVE PROPS:", props);
 
@@ -41,7 +42,8 @@ class ActiveUser extends Component {
           name: this.props.data[this.props.active].name,
           phone: this.props.data[this.props.active].phone,
           company: this.props.data[this.props.active].company,
-          email: this.props.data[this.props.active].email
+          email: this.props.data[this.props.active].email,
+          about: this.props.data[this.props.active].about
         })
   }
 
@@ -55,13 +57,15 @@ class ActiveUser extends Component {
                 phone: this.state.phone,
                 company: this.state.company,
                 email: this.state.email,
+                about: this.state.about,
                 image: "owl"
             }
 
             this.props.editUser(user);
             this.setState({editing:false});
 
-            setTimeout(() => this.props.update({
+            setTimeout(() =>               
+              this.props.update({
                     data:this.props.users
                 }), 150);
 
@@ -75,9 +79,20 @@ class ActiveUser extends Component {
     this.setState({editing:false});
     const activeNum = this.props.active;
     this.props.deleteUser(id, activeNum);
-    setTimeout(() => this.props.update({
-                    data:this.props.users
-                }), 200);
+    let newActive = this.props.active;
+
+
+            setTimeout(() => {
+
+            if(!this.props.users[newActive]) {
+              if(newActive != 0) {
+                newActive--;
+              }          
+          }           
+              this.props.update({
+                    data:this.props.users,
+                    active: newActive
+                })}, 150);
 
 
 
@@ -115,7 +130,7 @@ class ActiveUser extends Component {
                         </tr>
                       </tbody>
                     </table>
-                    <p><b>His own phrase:</b> {user.phrase}</p>
+                    <p><b>Information:</b></p><p> {user.about}</p>
               </div>
             </div>
       )} else {
@@ -123,7 +138,7 @@ class ActiveUser extends Component {
             return(
                   <div className="thimbnail">
                     <form onSubmit={this.stopEdit}>
-                      <img src={`images/${user.image}.svg`} alt=""/>
+                      <img style={{maxWidth: 100}} src={`images/${user.image}.svg`} alt=""/>
 
                       <div className="thimbnail-caption">
                         <h3><input type="text" defaultValue={user.name} name="name" onChange={this.onChange}/></h3>
@@ -146,7 +161,8 @@ class ActiveUser extends Component {
                             </tr>
                           </tbody>
                         </table>
-                        <p><b>His own phrase:</b> {user.phrase}</p>
+                        <p><b>Information:</b></p>
+                        <p><textarea defaultValue={user.about} name="about" onChange={this.onChange}/></p>
                       </div>
                     </form>
                   </div>

@@ -9,10 +9,10 @@ const TypePicker = (props) => {
     let el = null;
     switch(type) {
         case 0: 
-            el = <OneDayPicker />;
+            el = <OneDayPicker update={props.update}/>;
             break;
         case 1:
-            el = <IntervalPicker />;
+            el = <IntervalPicker update={props.update} />;
             break;
         default: 
             el = (<div>Nothing here...</div>);

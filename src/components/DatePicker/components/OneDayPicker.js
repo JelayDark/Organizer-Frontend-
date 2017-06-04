@@ -19,13 +19,15 @@ constructor (props) {
   }
 
   handleChange (date) {
-    this.setState({startDate: date})
-    this.toggleCalendar()
+    const evDate = date.format("YYYY/MM/DD");
+    this.setState({startDate: date});
+    this.toggleCalendar();
+    this.props.update({start: evDate, end: evDate});
   }
 
-  eventSubmit(e){
-    e.PreventDefault();
-  }
+  // eventSubmit(e){
+  //   e.PreventDefault();
+  // }
 
   toggleCalendar (e) {
     e && e.preventDefault()

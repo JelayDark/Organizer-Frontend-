@@ -3,7 +3,8 @@ import React, {Component} from 'react';
 export default class Toolbar extends Component {
   constructor(props) {
     super(props);
-    this.sorted = {age:true, name:true};
+    // this.sorted = {age:true, name:true};
+    this.sorted = {company:true, name:true};
   }
 
   sort(type) {
@@ -46,8 +47,8 @@ export default class Toolbar extends Component {
         <button className="btn btn-default" onClick={() => this.sort('name')}>
           <i className="fa fa-sort-alpha-asc"></i> Sort by name
         </button>
-        <button className="btn btn-default" onClick={() => this.sort('age')}>
-          <i className="fa fa-sort-alpha-asc"></i> Sort by age
+        <button className="btn btn-default" onClick={() => this.sort('company')}>
+          <i className="fa fa-sort-alpha-asc"></i> Sort by company
         </button>
         <button className="btn btn-default" onClick={this.reset.bind(this)}>
           <i className="fa fa-sort-alpha-asc"></i> Reset

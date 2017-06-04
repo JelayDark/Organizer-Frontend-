@@ -18,7 +18,8 @@ export default function contactsPanel(state = initialState, action) {
               company: action.payload.company,
               phone: action.payload.phone,
               email: action.payload.email,
-              image: action.payload.image
+              image: action.payload.image,
+              about: action.payload.about
             }
           ]
        })

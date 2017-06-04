@@ -1,9 +1,10 @@
 import React from 'react';
 // import ToDoList from './ToDoList';
-import Contacts from './ContactsOLD';
-import ContactsApp from './Contacts';
-import Calendar from './MainCalendar';
-import DatePage from './DatePicker';
+import Contacts from './Contacts';
+// import ContactsApp from './Contacts';
+// import Calendar from './MainCalendar';
+import Calendar from './Calendar';
+import DatePicker from './DatePicker';
 import ToDoApp from './ToDo';
 
 const Page = (props) => {
@@ -14,7 +15,7 @@ const Page = (props) => {
             el = <Calendar />;
             break;
         case 1:
-            el = <DatePage />;
+            el = <DatePicker />;
             break;
         case 2:
             // el = <ToDoList />;

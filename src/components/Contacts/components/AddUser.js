@@ -12,7 +12,8 @@ class AddUser extends Component {
             name: '',
             phone: '',
             company:'',
-            email: ''
+            email: '',
+            about: '',
         }
         this.addContact = this.addContact.bind(this);
         this.addAvatar = this.addAvatar.bind(this);
@@ -34,6 +35,8 @@ class AddUser extends Component {
     addContact(e) {
         e.preventDefault();
         const input = document.querySelectorAll('input');
+        const textarea = document.querySelector('textarea');
+        textarea.value = '';
         let i = 0;
         while(i<input.length){
 
@@ -47,11 +50,11 @@ class AddUser extends Component {
                 phone: this.state.phone,
                 company: this.state.company,
                 email: this.state.email,
+                about: this.state.about,
                 image: "owl"
             }
 
             this.props.addContact(user).then((response) =>{
-                console.log('I LOVE U');
                 console.log(response);
                 const store = this.context.store;
                 // console.log("STORE:", store);
@@ -59,7 +62,6 @@ class AddUser extends Component {
                 store.dispatch({type: ADD_CONTACT, payload: response.data}); 
                 // this.props.closeModal(true);
             }).catch((err) => {
-                console.log('I HATE U');
                 console.log(err);
                 // this.props.closeModal(false);
             })
@@ -68,7 +70,7 @@ class AddUser extends Component {
                     data:this.props.data
                 }), 200);
 
-            this.setState({name: '', phone: '', company:'', email: ''});
+            this.setState({name: '', phone: '', company:'', email: '', about: ''});
 
         } else {
             return <div></div>
@@ -90,6 +92,7 @@ class AddUser extends Component {
                         <div><label>Company: <input type="text" placeholder="Company" name="company" onChange={this.onChange}/></label></div>
                         <div><label>Phone: <input type="text" placeholder="+38(095)0950950950" name="phone" onChange={this.onChange}/></label></div>
                         <div><label>E-mail: <input type="email" placeholder="forexample@tyt.ru" name="email" onChange={this.onChange}/></label></div>
+                        <div><label>About: <textarea name="about" onChange={this.onChange}/></label></div>
                         {/*<div className="but-left"><button onClick={this.addAvatar}>Add Avatar</button></div>*/}
                         <div className="but-submit"><button type="submit">Add Contact</button></div>
                         <div className="errors">

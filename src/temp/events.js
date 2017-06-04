@@ -7,8 +7,8 @@ export default [
   },
   {
     'title': 'Long Event',
-    'start': new Date(2015, 3, 7),
-    'end': new Date(2015, 3, 10)
+    'start': "2015/4/7",
+    'end': "2015/4/7"
   },
 
   {
