@@ -3,6 +3,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 // import { Loc } from 'redux-react-i18n';
 import classNames from 'classnames';
 import Page from './Page';
+import FigureMenu from './FigureMenu';
 
 class MenuPage extends Component {
 
@@ -55,7 +56,8 @@ class MenuPage extends Component {
                                         <li className={page4} onClick={this.setPage.bind(this, 3)}>
                                             <span>Контакты</span>
                                         </li>
-                                    </ul>    
+                                    </ul>  
+                                    {/*<FigureMenu />  */}
                                 </Row>
                             </Col>
                     </Row>

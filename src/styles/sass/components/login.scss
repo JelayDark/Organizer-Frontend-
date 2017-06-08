@@ -1,10 +1,28 @@
-.field-container form {
-    width: 400px;
-    height: 200px;
+.admin-container {
+   text-align: center;
+}
+
+.login-type {
+    background-color: blue;
+    line-height: 50px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.login:before {
+    content: "\f090";
+
+}
+
+.form-login {
+    border: 5px solid blue;
+    // border-radius: 5px;
+    padding: 20px;
+    position: absolute;
+    height: 170px;
+    width: 370px;
     text-align: center;
-    border: 1px solid black;
-    border-radius: 5px;
-    &.div {
-        padding: 20px;
-    }
+    top: calc(50% - 85px);
+    left: calc(50% - 185px);
+
 }

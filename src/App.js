@@ -5,6 +5,7 @@ import Header from './components/Header';
 // import Contacts from './components/Contacts';
 // import ToDo from './components/ToDoList';
 import MenuPage from './components/MenuPage';
+import FigureMenu from './components/FigureMenu';
 
 
 class App extends Component {
@@ -12,7 +13,8 @@ class App extends Component {
     return (
       <div>
           <Header />
-          <MenuPage />
+          {/*<MenuPage />*/}
+          <FigureMenu />
           {/*<Navigation />*/}
           {/*<Contacts data="data.json"/>*/}
           {/*<ToDo/>*/}

@@ -103,19 +103,27 @@ class Login extends Component {
             <div className="admin-container">
                 <div className="admin-container-inner">
                     <div className="header">
-                        <h1>TakeYourTime</h1>
-                        <h1>SignUp</h1>
+                        {/*<h1>TakeYourTime</h1>*/}
+                        <h1 className="login-type login">Sign In</h1>
                     </div>
                     <div className="field-container">
-                        <form onSubmit={this.submitLogin}>
-                            <div>
-                                <input type="text" name="login" value={login} onChange={this.onChange} placeholder="Username" className={loginClass}  />
+                        <form className="form-horizontal form-login" onSubmit={this.submitLogin}>
+                            <div className="form-group">
+                                <label for="inputLogin" className="col-sm-3 control-label">Login</label>
+                                <div className="col-sm-9">
+                                    {/*<input id="inputLogin" type="text" name="login" value={login} onChange={this.onChange} placeholder="Username" className={loginClass}  />*/}
+                                    <input id="inputLogin" type="text" name="login" value={login} onChange={this.onChange} placeholder="Username" className="form-control"  />
+                                </div>
+                            </div>
+                            <div className="form-group">
+                                <label for="inputPassword" className="col-sm-3 control-label">Password</label>
+                                <div className="col-sm-9">
+                                {/*<input id="inputPassword" type="password" name="password" value={password} onChange={this.onChange} placeholder="Password" className={passwordClass}/>*/}
+                                <input id="inputPassword" type="password" name="password" value={password} onChange={this.onChange} placeholder="Password" className="form-control"/>
+                                </div>
                             </div>
                             <div>
-                                <input type="password" name="password" value={password} onChange={this.onChange} placeholder="Password" className={passwordClass}/>
-                            </div>
-                            <div>
-                                <button type="submit" disabled={isLoading}>Enter</button>
+                                <button className="btn btn-default" type="submit" disabled={isLoading}>Sign In</button>
                             </div>
 
                         </form>

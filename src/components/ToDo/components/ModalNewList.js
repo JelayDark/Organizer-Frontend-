@@ -61,19 +61,21 @@ class ModalNewList extends Component {
         if (visibility) {
             return (
                 <div className="modal-container">
-                    <div className="modal">
+                    <div className="xmodal">
                         <div className="close">
-                            <span onClick={this.props.closeModal}>x</span>
+                            <span  className = "close" onClick={this.props.closeModal}>x</span>
                         </div>
                         <form onSubmit={this.onSubmit}>
-                            <h1>New List</h1>
-                            <p>Введите название списка:</p>
-                            <div><input onChange={this.onChange} type="text" placeholder="ListName" name="name"/></div>
+                            <h3>Add list</h3>
+                            <div className="form-group">
+                            <label htmlFor="name" >Type list name here:</label>
+                                <input className="form-control" onChange={this.onChange} type="text" placeholder="ListName" id="name" name="name"/>
+                            </div>
                             <div className="errors">
                                 {errors && <span>List already exists!</span>}
                             </div>
                             <div>
-                                <button type="submit">Save</button>
+                                <button className="btn btn-default" type="submit">Add list</button>
                             </div>
                         </form>
                     </div>

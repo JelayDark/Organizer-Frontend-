@@ -19,18 +19,9 @@ class ToDoApp extends Component {
       <Grid fluid>
         <Row >
           <Col xs={12}>
-            <Row center="xs">
-              {/*<Col lg={6}>*/}
-                {/*<AddTodo/>
-                  <VisibleTodoList/>
-                  <Footer/>
-                  <listsList/>*/}
-                {/*<NeedsList/>*/}
-                <FilterLinks />
-              {/*</Col>*/}
-              <Col lg={6}>
+            <Row center="xs" className="to-do-lists">
                 <ListsList/>
-              </Col>
+                <FilterLinks />
             </Row>
           </Col>
         </Row>

@@ -40,17 +40,17 @@ class ListsList extends Component {
 
   render() {
     return (
-      <Col lg={6}>
-        <table>
-          <thead>
-            <tr>
-              <th onClick={this.addList}>Add List</th>
+      <Col lg={5} className="list-list">
+      <button onClick={this.addList} className="btn btn-primary list-add">Add New List</button>
+        <table className="table table-bordered table-hover">
+          {/*<thead>
+            <tr className="list-add">
+              <th colSpan={3} onClick={this.addList}>Add List</th>
             </tr>
-          </thead>
+          </thead>*/}
           <tbody>
             {this.props.lists.map((list, index) => 
             <tr
-                className="ellist"
                 key={index}>
                 <td onClick={this.onClick.bind(this, index)}>{index + 1}</td>
                 <td onClick={this.onClick.bind(this, index)}>{list.name}</td>

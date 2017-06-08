@@ -7,7 +7,8 @@ import {getEvents} from '../../actions/events';
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import ModalView from './components/ModalView';
-import Reminder from './components/Reminder';
+// import Reminder from './components/Reminder';
+
 
 BigCalendar.momentLocalizer(moment);
 
@@ -49,7 +50,7 @@ class Calendar extends Component {
                                     <Row center="xs">
                                     <Col xs={10}>
                                         <div className='container-calendar'>
-                                            <Reminder />
+                                            {/*<Reminder />*/}
                                             <BigCalendar className='calendar'
                                                 popup
                                                 scrollToTime={new Date(1970, 1, 1, 6)}

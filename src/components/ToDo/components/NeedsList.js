@@ -52,67 +52,63 @@ class NeedsList extends Component {
     switch (filter) {
       case ("SHOW_ALL"):
           return (
-              <div>
-                <ul>
+              <table className="table table-bordered table-hover">
+                <tbody>
                     {this.props.needs.map((need, index) => 
-                    <li className="ellist" key={index} >
-                      <span onClick={this.onClick.bind(this, index)}>
-                        <span>{index + 1}</span>
-                        <span style={{
+                    <tr  key={index} >
+                        <td onClick={this.onClick.bind(this, index)}>{index + 1}</td>
+                        <td onClick={this.onClick.bind(this, index)} style={{
                                     textDecoration: need.isCompleted ? 'line-through' : 'none'
-                                  }}>{need.task}</span>
-                      </span>
-                        <span className="bin" onClick={this.deleteTodo.bind(this, need.task)}>X</span>
-                      </li>)}
-                </ul>
-              </div>
+                                  }}>{need.task}</td>
+                        <td className="bin" onClick={this.deleteTodo.bind(this, need.task)}>X</td>
+                      </tr>)}
+                </tbody>
+              </table>
           )
       case ("SHOW_COMPLETED"):
       return (
-              <div>
-                <ul>
+              <table className="table table-bordered table-hover">
+                <tbody>
+                {/*<ul>*/}
                     {/*<li style={{
                           display: need.isCompleted ? 'block' : 'none'
                         }}
                         onClick={this.onClick.bind(this, index)}
                         className="ellist" key={index} >*/}
                     {this.props.needs.map((need, index) => 
-                      <li style={{
-                          display: need.isCompleted ? 'block' : 'none'
-                        }} key={index} className="ellist" >
-                      <span 
-                        onClick={this.onClick.bind(this, index)}
-                        >
-                        <span>{index + 1}</span>
-                        <span style={{
-                                    textDecoration: need.isCompleted ? 'line-through' : 'none'
-                                  }}>{need.task}</span>
-                      </span>
-                        <span className="bin" onClick={this.deleteTodo.bind(this, need.task)}>X</span>
+                      <tr style={{
+                          display: need.isCompleted ? 'table-row' : 'none'
+                        }} key={index} >
+                        <td onClick={this.onClick.bind(this, index)}>{index + 1}</td>
+                        <td onClick={this.onClick.bind(this, index)} 
+                            style={{
+                              textDecoration: need.isCompleted ? 'line-through' : 'none'
+                            }}>{need.task}</td>
+                        <td className="bin" onClick={this.deleteTodo.bind(this, need.task)}>X</td>
 
-                      </li>)}
-                </ul>
-              </div>
+                      </tr>)}
+                {/*</ul>*/}
+                </tbody>
+              </table>
           )
       case ("SHOW_ACTIVE"):
           return (
-              <div>
-                <ul>
+              <table className="table table-bordered table-hover">
+                <tbody>
                     {this.props.needs.map((need, index) => 
-                    <li style={{
-                          display: need.isCompleted ? 'none' : 'block'
+                    <tr style={{
+                          display: need.isCompleted ? 'none' : 'table-row'
                         }}
                         className="ellist" key={index} >
-                        <span onClick={this.onClick.bind(this, index)}>
-                        <span>{index + 1}</span>
-                        <span style={{
+                        <td onClick={this.onClick.bind(this, index)}>{index + 1}</td>
+                        <td onClick={this.onClick.bind(this, index)} style={{
                                     textDecoration: need.isCompleted ? 'line-through' : 'none'
-                                  }}>{need.task}</span>
-                        </span>
-                        <span className="bin" onClick={this.deleteTodo.bind(this, need.task)}>X</span>
-                      </li>)}
-                </ul>
-              </div>
+                                  }}>{need.task}</td>
+
+                        <td className="bin" onClick={this.deleteTodo.bind(this, need.task)}>X</td>
+                      </tr>)}
+                </tbody>
+              </table>
           )
           default:
             return(<div></div>)

@@ -66,39 +66,44 @@ class ModalView extends Component {
         const event = this.props.event;
 
         if (visibility) {
+            let evDate = "";
+            if (event.start == event.end) { evDate = event.start} else {evDate = event.start + " - " + event.end;}
+
             if(!editing) {
                 return(
                         <div className="modal-container">
-                            <div className="modal">
+                            <div className="xmodal">
                                 <div className="close">
                                     <span onClick={this.props.closeModal}>x</span>
                                 </div>
+                                    <p>{evDate}</p>
                                     <p><b>{event.title}</b></p>
                                     <p>{event.desc}</p>
-                                    <div>
+                                    
                                         {/*<button onClick={this.deleteEvent}>Delete</button> */}
-                                        <button onClick={this.startEdit}>Edit</button>
-                                    </div>
-                                    <button onClick={this.props.closeModal}>Okay</button> 
+                                        <button className="btn btn-default btn-sm" onClick={this.startEdit}>Edit</button>
+                                    
+                                    <button className="btn btn-default btn-sm" onClick={this.props.closeModal}>Okay</button> 
                             </div>
                         </div>
                 )
             } else {
                 return(
                         <div className="modal-container">
-                            <div className="modal">
+                            <div className="xmodal">
                                 <div className="close">
                                     <span onClick={this.props.closeModal}>x</span>
                                 </div>
                                     <form onSubmit={this.stopEdit}>
-                                        <p><input type="text" defaultValue={this.props.event.title} name="title" onChange={this.onChange}/></p>
-                                        <p><textarea type="text" defaultValue={this.props.event.desc} name="desc" onChange={this.onChange}/></p>
-                                        <div>
+                                        <p>{evDate}</p>
+                                        <p><input className="form-control" type="text" defaultValue={this.props.event.title} name="title" onChange={this.onChange}/></p>
+                                        <p><textarea className="form-control" type="text" defaultValue={this.props.event.desc} name="desc" onChange={this.onChange}/></p>
+                                        
                                             {/*<button onClick={this.deleteEvent}>Delete</button> */}
-                                            <button type="submit">Save</button>
-                                        </div>
+                                            <button className="btn btn-default btn-sm" type="submit">Save</button>
+                                            <button className="btn btn-default btn-sm" onClick={this.props.closeModal}>Close</button> 
+                                        
                                     </form>
-                                        <button onClick={this.props.closeModal}>Close</button> 
                             </div>
                         </div>
             )}

@@ -18,7 +18,7 @@ class FilterLinks extends Component {
 
     render() {
             return (
-                <Col lg={6}>
+                <Col lg={5} className="list-needs">
                         <AddToDo />
                         <div> SHOW: <a href="#" onClick={this.onClick.bind(this, 'SHOW_ALL')}> All </a>
                                     <a href="#" onClick={this.onClick.bind(this, 'SHOW_COMPLETED')}> Completed </a>

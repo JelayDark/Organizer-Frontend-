@@ -26,7 +26,6 @@ class AddToDo extends Component {
     }
 
     onSubmit(e) {
-        console.log('aaaa');
         e.preventDefault();
         const input = document.querySelector('input');
         input.value = '';
@@ -54,16 +53,16 @@ class AddToDo extends Component {
     }
 
     render() {
-            return (
-                        <form onSubmit={this.onSubmit}>
-                            <div>
-                                <input onChange={this.onChange} type="text" placeholder="What do u need 2 do?" name="task"/>
-                                <button type="submit">Add ToDo</button>
+            if(this.props.active) { return (
+                        <form className = "form-inline" onSubmit={this.onSubmit}>
+                            <div className="form-group">
+                                <input className="form-control" onChange={this.onChange} type="text" placeholder="What do u need 2 do?" name="task"/>
                             </div>
+                                <button className="btn btn-primary" type="submit">Add ToDo</button>
                             {/*<div>*/}
                             {/*</div>*/}
                         </form>
-            )
+            )} else return <div>No lists active</div>
     }
 
 }
