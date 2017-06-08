@@ -87,7 +87,7 @@ class DatePicker extends Component {
                                                     <label className="custom-radio">День<input type="radio" name="type_event" onClick={this.setType.bind(this, 0)} defaultChecked/><div></div></label>
                                                     <label className="custom-radio">Промежуток времени<input type="radio"  name="type_event" onClick={this.setType.bind(this, 1)}/><div></div></label>
                                                 </p>*/}
-                                                    <p>Type of event switcher:</p>
+                                                    <p>Event's type switcher:</p>
                                                 <div className="onoffswitch">
                                                     <input type="checkbox" name="onoffswitch" className="onoffswitch-checkbox" id="myonoffswitch" onClick={this.setType.bind(this)}/>
                                                     <label className="onoffswitch-label" htmlFor="myonoffswitch">
@@ -96,9 +96,15 @@ class DatePicker extends Component {
                                                     </label>
                                                 </div>
                                                 <TypePicker type={this.state.show} update={this.updateDate.bind(this)}/>
-                                                <p><label title="Название события">Название события [?]:<input type="text" placeholder="Уникальное событие" name="title" onChange={this.onChange}/></label></p>
-                                                <p><label title="Описание события">Событие [?]:<textarea rows="10" cols="45" name="desc" onChange={this.onChange}></textarea></label></p>
-                                                <div><button type="submit">Добавить событие</button></div>
+                                                <div>
+                                                    <label htmlFor="title" title="Название события/Reason">Event's title [?]:</label>
+                                                    <input className="form-control" id="title" type="text" placeholder="Title" name="title" onChange={this.onChange}/>
+                                                </div>
+                                                <div>
+                                                    <label htmlFor="desc" title="Описание события">Description [?]:</label>
+                                                        <textarea id="desc" className="form-control" rows="10" cols="45" name="desc" onChange={this.onChange}></textarea>
+                                                </div>
+                                                <div><button className="btn btn-primary" type="submit">Добавить событие</button></div>
                                                 <div className="errors">
                                                     {errors && <span>User already exists!</span>} 
                                                 </div>

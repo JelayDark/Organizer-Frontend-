@@ -18,7 +18,7 @@ class Reminder extends Component {
       let those, delta, word = ["осталось", "дня"], evEnd;
       return (
             <div className="rem">
-                <ul className="remind-right">
+                <ul className="remind-right" id="box5">
                     {this.props.events.map(function (element, i) {
                                                 those = new Date(element.start);
                                                 if(those > Date.now()){
@@ -41,7 +41,7 @@ class Reminder extends Component {
                                                  }
 
                     </ul>
-                    <ul className="remind-left">
+                    <ul className="remind-left" id="box6">
                         {this.props.events.map(function (element, i) {
                                                 those = new Date(element.start);
                                                 if(those <= Date.now()) {
@@ -57,6 +57,7 @@ class Reminder extends Component {
                                                 
                                             })
                                             }
+                                            {/*<li className="reminder-type">TODAY</li>*/}
                         </ul>
                                             {/*{this.props.events.map(function (element, i) {
                                                 those = new Date(element.start);

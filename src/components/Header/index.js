@@ -39,8 +39,14 @@ class Header extends Component {
                     <Col xs={12}>
                         <header>
                             <Row center="xs" className="header-wrapper">
-                                
+                                <Col xs={4} className="left-side">
+                                    <div className="logotype">
+                                    </div>
+                                </Col>
                             </Row>
+                                {/*<div className="rem-type rem-type-left">Today</div>
+                                <div className="rem-type rem-type-right">Soon</div>*/}
+                                <Reminder />
                         </header>
                     </Col>
                 </Row>

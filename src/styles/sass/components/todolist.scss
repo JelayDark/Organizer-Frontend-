@@ -12,21 +12,21 @@
         .list-add {
             margin-bottom: 20px; 
         }
-        &::-webkit-scrollbar {
-            width: 9px;
-        }
+        // &::-webkit-scrollbar {
+        //     width: 9px;
+        // }
  
-        &::-webkit-scrollbar-track {
-            background:#eee;
-            border: thin solid lightgray;
-            box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1) inset;
-        }
+        // &::-webkit-scrollbar-track {
+        //     background:#eee;
+        //     border: thin solid lightgray;
+        //     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.1) inset;
+        // }
  
-        &::-webkit-scrollbar-thumb {
-            border-radius: 7px; 
-            background:#999;
-            border: thin solid gray;
-        }
+        // &::-webkit-scrollbar-thumb {
+        //     border-radius: 7px; 
+        //     background:#999;
+        //     border: thin solid gray;
+        // }
     }
     .list-needs {
         max-width: 100%;
