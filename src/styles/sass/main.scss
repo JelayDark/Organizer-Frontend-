@@ -22,11 +22,19 @@
 body {
     padding: 0;
     margin: 0;
-    font-family: Roboto;
-    background: url("../../images/bg.jpg") center center;
-    background-size: contain;
-    // background: #000;
+    font-family: "Roboto", sans-serif;
+    // background: #ffe;
 }
+
+// .back {
+//     background: url("../../images/pictos.svg") center center;
+//     background-size: contain;
+//     opacity: .3;
+//     width: 100%;
+//     height: 100%;
+//     z-index: 1;
+
+// }
 
 body.no-overflow {
     overflow-y: hidden;

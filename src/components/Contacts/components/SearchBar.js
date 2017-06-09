@@ -21,7 +21,7 @@ export default ({term, data, update, initialData}) => {
   };
 
   return (
-    <div className="searchbar form-group">
+    <div className="con-searchbar form-group">
       <input
         value={term}
         type="text"

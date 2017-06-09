@@ -34,47 +34,36 @@ class AllEvents extends Component {
     const initialData = this.props.data;
     return (
       <Grid fluid>
-                        <Row >
-                            <Col xs={12}>
                                     <Row center="xs">
-                                    <Col xs={10}>
+                                    <Col xs={12}>
                           
                                         <div className="app container-fluid">
-                                          <div className="row">
-                                            <div className="col-sm-12">
                                               <SearchBar
                                                 term={this.state.term}
                                                 data={this.state.data}
                                                 update={this.updateData.bind(this)}
                                                 initialData={initialData}
                                               />
-                                            </div>
-                                          </div>
 
-
-                                          <div className="row">
-                                            <div className="col-sm-8 col-md-6 col-lg-6">
                                               <EventList 
                                                        data={this.state.data} 
                                                        update={this.updateData.bind(this)} 
                                                       />
-                                            </div>
-                                          </div>
                                           
                                         </div>
                                   </Col>
                         </Row>
-                    </Col>
-                </Row>
         </Grid>
 
     );
   }
 }
 
-export default connect(
-  state => ({
-    data: state.eventsPanel.events,
-  }), 
+// export default connect(
+//   state => ({
+//     data: state.eventsPanel.events,
+//   }), 
 
-)(AllEvents)
+// )(AllEvents)
+
+export default AllEvents;

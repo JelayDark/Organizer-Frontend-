@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import Modal from './Modal';
+
 
 export default class Toolbar extends Component {
   constructor(props) {
@@ -41,18 +43,27 @@ export default class Toolbar extends Component {
     });
   }
 
+  add() {
+    this.props.update({
+      modal: true,
+    });
+  }
+
   render() {
     return (
       <div className="toolbar">
-        <button className="btn btn-default" onClick={() => this.sort('name')}>
-          <i className="fa fa-sort-alpha-asc"></i> Sort by name
-        </button>
-        <button className="btn btn-default" onClick={() => this.sort('company')}>
-          <i className="fa fa-sort-alpha-asc"></i> Sort by company
-        </button>
-        <button className="btn btn-default" onClick={this.reset.bind(this)}>
-          <i className="fa fa-sort-alpha-asc"></i> Reset
-        </button>
+        <button className="btn btn-success add-btn" onClick={this.add.bind(this)}>Add Contact</button>
+        <div className="tool-btn">
+          <button className="btn btn-default" onClick={() => this.sort('name')}>
+            <i className="fa fa-sort-alpha-asc"></i> Sort by name
+          </button>
+          <button className="btn btn-default" onClick={() => this.sort('company')}>
+            <i className="fa fa-sort-alpha-asc"></i> Sort by company
+          </button>
+          <button className="btn btn-default" onClick={this.reset.bind(this)}>
+            <i className="fa fa-sort-alpha-asc"></i> Reset
+          </button>
+        </div>
       </div>
     );
   }

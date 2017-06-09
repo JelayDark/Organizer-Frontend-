@@ -35,7 +35,6 @@ export default ({term, data, update, initialData}) => {
         placeholder="Search event by title..."
         onChange={dataSearch}
       />
-      <button onClick={resetdata}>Reset</button>
     </div>
   );
 };

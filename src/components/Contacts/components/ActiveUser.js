@@ -108,11 +108,11 @@ class ActiveUser extends Component {
         return(
               <div className="thimbnail">
                   <img style={{maxWidth: 100}} src={`images/${user.image}.svg`} alt=""/>
+                  <button className="btn btn-primary" onClick={this.startEdit}>Edit</button>
+                  <button className="btn btn-default" onClick={this.deleteUser.bind(this, user._id)}>Delete</button>
 
                   <div className="thimbnail-caption">
                     <h3>{user.name}</h3>
-                    <button onClick={this.startEdit}>Edit</button>
-                    <button onClick={this.deleteUser.bind(this, user._id)}>Delete</button>
 
                     <table className="user-info table table-responsive">
                       <tbody>
@@ -138,31 +138,31 @@ class ActiveUser extends Component {
             return(
                   <div className="thimbnail">
                     <form onSubmit={this.stopEdit}>
+                      <button className="btn btn-primary" type="submit">Save</button>
+                      <button className="btn btn-default" onClick={this.deleteUser.bind(this, user._id)}>Delete</button>
                       <img style={{maxWidth: 100}} src={`images/${user.image}.svg`} alt=""/>
 
                       <div className="thimbnail-caption">
-                        <h3><input type="text" defaultValue={user.name} name="name" onChange={this.onChange}/></h3>
-                        <button type="submit">Save</button>
-                        <button onClick={this.deleteUser.bind(this, user._id)}>Delete</button>
+                        <h3><input className="form-control" type="text" defaultValue={user.name} name="name" onChange={this.onChange}/></h3>
 
                         <table className="user-info table table-responsive">
                           <tbody>
                             <tr>
                               <td>Company:</td>
-                              <td><input type="text" defaultValue={user.company} name="company" onChange={this.onChange}/></td>
+                              <td><input className="form-control" type="text" defaultValue={user.company} name="company" onChange={this.onChange}/></td>
                             </tr>
                             <tr>
                               <td>Phome:</td>
-                              <td><input type="text" defaultValue={user.phone} name="phone" onChange={this.onChange}/></td>
+                              <td><input className="form-control" type="text" defaultValue={user.phone} name="phone" onChange={this.onChange}/></td>
                             </tr>
                             <tr>
                               <td>Email:</td>
-                              <td><input type="text" defaultValue={user.email} name="email" onChange={this.onChange}/></td>
+                              <td><input className="form-control" type="text" defaultValue={user.email} name="email" onChange={this.onChange}/></td>
                             </tr>
                           </tbody>
                         </table>
                         <p><b>Information:</b></p>
-                        <p><textarea defaultValue={user.about} name="about" onChange={this.onChange}/></p>
+                        <p><textarea className="form-control" defaultValue={user.about} name="about" onChange={this.onChange}/></p>
                       </div>
                     </form>
                   </div>

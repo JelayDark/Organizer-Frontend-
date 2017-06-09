@@ -13,6 +13,7 @@ export default ({data, update, active}) => {
   });
 
   return (
+    <div className="event-list">
     <table className="user-list table table-striped">
       <thead>
         <tr>
@@ -29,5 +30,6 @@ export default ({data, update, active}) => {
         {events}
       </tbody>
     </table>
+    </div>
   );
 };

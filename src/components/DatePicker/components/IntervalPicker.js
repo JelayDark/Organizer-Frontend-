@@ -35,8 +35,8 @@ constructor (props) {
 
     render() {
       return (
-                <div>
-                    <p>Выберите даты, нажав на поля:</p>
+                <div className="picker-pick">
+                    <p>Select dates by clicking on a fields:</p>
                     <DatePicker
                         selected={this.state.startDate}
                         selectsStart

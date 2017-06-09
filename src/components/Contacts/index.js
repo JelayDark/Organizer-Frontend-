@@ -7,6 +7,7 @@ import AddUser from './components/AddUser';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { getContacts } from '../../actions/contacts';
 import {connect} from 'react-redux';
+import Modal from './components/Modal';
 
 class Contacts extends Component {
   constructor(props) {
@@ -15,17 +16,27 @@ class Contacts extends Component {
     this.state = {
       data: null,
       active: 0,
-      term: ''
+      term: '',
+      modal: false
     };
     // сразу загружаем данные
     setTimeout(()=>this.setState({data: this.props.data}), 300);
 
     this.updateData = this.updateData.bind(this);
+    this.closeModal = this.closeModal.bind(this);
 
   }
   
   updateData(config) {
     this.setState(config);
+  }
+
+  add() {
+    this.setState({modal:true});
+  }
+
+  closeModal() {
+    this.setState({modal: false});
   }
 
   // deleteUser(id, index) {
@@ -47,7 +58,7 @@ class Contacts extends Component {
                           
                                         <div className="app container-fluid">
                                           <div className="row">
-                                            <div className="col-sm-12">
+                                            <div className="col-sm-7">
                                               <SearchBar
                                                 term={this.state.term}
                                                 data={this.state.data}
@@ -57,28 +68,26 @@ class Contacts extends Component {
                                             </div>
                                           </div>
 
-                                          <div className="row">
-                                            <div className="col-sm-12">
-                                              <Toolbar
-                                                initialData={initialData}
-                                                data={this.state.data}
-                                                update={this.updateData.bind(this)}
-                                              />
-                                            </div>
-                                          </div>
 
                                           <div className="row">
-                                            <div className="col-md-3 col-lg-3"> 
-                                              <AddUser update={this.updateData.bind(this)}/>
+                                            <div className="col-sm-8 col-md-6 col-lg-7 con-list">
+                                            <div className="row">
+                                              <div className="col-sm-12">
+                                                <Toolbar
+                                                  initialData={initialData}
+                                                  data={this.state.data}
+                                                  update={this.updateData.bind(this)}
+                                                />
+                                              </div>
                                             </div>
-                                            <div className="col-sm-8 col-md-6 col-lg-6">
-                                              <UserList 
-                                                       data={this.state.data} 
-                                                       update={this.updateData.bind(this)} 
-                                                       active={this.state.active}
-                                                      />
+                                            <UserList 
+                                                      data={this.state.data} 
+                                                      update={this.updateData.bind(this)} 
+                                                      active={this.state.active}
+                                                    />
                                             </div>
-                                            <div className="col-sm-4 col-md-3 col-lg-3">
+                                            <Modal visibility={this.state.modal} closeModal={this.closeModal} update={this.updateData.bind(this)}/>
+                                            <div className="col-sm-4 col-md-3 col-lg-4 con-act">
                                               <ActiveUser 
                                                         data={this.state.data} 
                                                         active={this.state.active} 

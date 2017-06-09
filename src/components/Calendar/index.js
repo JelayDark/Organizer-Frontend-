@@ -56,7 +56,7 @@ class Calendar extends Component {
                                                 scrollToTime={new Date(1970, 1, 1, 6)}
                                                 events={this.props.events}
                                                 onSelectEvent={this.showEvent}
-                                                views={['month','agenda']}
+                                                views={['month']}
                                                 />
                                                 {/*onSelectSlot={(slotInfo) => alert(
                                                     `selected slot: \n\nstart ${slotInfo.start.toLocaleString()} ` +

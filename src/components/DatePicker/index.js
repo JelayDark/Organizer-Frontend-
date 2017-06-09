@@ -18,8 +18,11 @@ class DatePicker extends Component {
             start: moment().format('YYYY/MM/DD'),
             end: moment().format('YYYY/MM/DD'),
             title: '',
-            desc: ''
+            desc: '',
+            data: ""
         }
+
+        setTimeout(() => this.setState({data: this.props.events}), 150);
 
         this.eventSubmit = this.eventSubmit.bind(this);
         this.onChange = this.onChange.bind(this);
@@ -53,11 +56,13 @@ class DatePicker extends Component {
             }
 
             this.props.addEvent(event);
+        this.setState({title: '', desc: ''});
+
+        setTimeout(() => this.setState({data: this.props.events}), 350);
         } else {
             return (<h2>Укажите Название События</h2>);
         }
 
-        this.setState({title: '', desc: ''});
     }
 
     updateDate(config) {
@@ -75,18 +80,13 @@ class DatePicker extends Component {
     render() {
         let { errors } = this.state;
 
-      return (
-            <Grid fluid>
+            {/*<Grid fluid>
                         <Row >
-                            <Col xs={12}>
+                            <Col xs={12}>*/}
+      return (
                                     <Row center="xs">
-                                    <Col xs={10}>
-                                        <div>
+                                    <Col lg={5}>
                                             <form onSubmit={this.eventSubmit}>
-                                                {/*<p>
-                                                    <label className="custom-radio">День<input type="radio" name="type_event" onClick={this.setType.bind(this, 0)} defaultChecked/><div></div></label>
-                                                    <label className="custom-radio">Промежуток времени<input type="radio"  name="type_event" onClick={this.setType.bind(this, 1)}/><div></div></label>
-                                                </p>*/}
                                                     <p>Event's type switcher:</p>
                                                 <div className="onoffswitch">
                                                     <input type="checkbox" name="onoffswitch" className="onoffswitch-checkbox" id="myonoffswitch" onClick={this.setType.bind(this)}/>
@@ -104,22 +104,20 @@ class DatePicker extends Component {
                                                     <label htmlFor="desc" title="Описание события">Description [?]:</label>
                                                         <textarea id="desc" className="form-control" rows="10" cols="45" name="desc" onChange={this.onChange}></textarea>
                                                 </div>
-                                                <div><button className="btn btn-primary" type="submit">Добавить событие</button></div>
+                                                <div><button className="btn btn-primary pick-btn" type="submit">Добавить событие</button></div>
                                                 <div className="errors">
                                                     {errors && <span>User already exists!</span>} 
                                                 </div>
                                             </form>  
-                                        </div>
-
-                                        <div>
-                                            <AllEvents />
-                                        </div>
+                                        </Col>
+                                        <Col lg={5}>
+                                            <AllEvents  data={this.state.data}/>
                                         </Col>
 
                                 </Row>
-                            </Col>
-                        </Row>
-                </Grid>
+                //             </Col>
+                //         </Row>
+                // </Grid>
 
       );
 

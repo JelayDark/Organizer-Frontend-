@@ -23,3 +23,32 @@
   font-size: 2rem;
   color: #ccc;
 }
+
+.add-btn {
+  float: left;
+}
+
+.tool-btn {
+  float: right;
+}
+
+.con-list {
+  max-width: 100%;
+  max-height: 500px;
+  min-height: 300px;
+  padding: 7px;
+  -webkit-box-shadow: 0px 0px 8px 3px #ddd;
+  -moz-box-shadow: 0px 0px 8px 3px #ddd;
+  box-shadow: 0px 0px 8px 3px #ddd;
+  overflow-y: scroll;
+  margin-left: 8px;
+  // margin-right: 20px;
+}
+
+.con-act {
+  margin-left: 65px;
+}
+
+.con-searchbar {
+  width: 550px;
+}

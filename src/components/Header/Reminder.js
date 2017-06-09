@@ -23,17 +23,18 @@ class Reminder extends Component {
                                                 those = new Date(element.start);
                                                 if(those > Date.now()){
                                                     delta = those - Date.now();
-                                                    delta = Math.round(delta / 1000 / 60 / 60/ 24);
+                                                    {/*delta = Math.round(delta / 1000 / 60 / 60/ 24);*/}
+                                                    delta = delta / 1000 / 60 / 60/ 24;
                                                     {/*delta++;*/}
                                                     console.log('Delta >: ', delta, 'word:', word, 'title: ', element.title);
-                                                        if(delta>=0 && delta<2) {
+                                                        if(delta>=0 && delta<=1) {
                                                             return(<li  key={i}>Событие "{element.title}" уже завтра</li>)
-                                                        } else if(delta>=2 && delta<5){
+                                                        } else if(delta>1 && delta<5){
                                                             {/*word = ["осталось", "дня"];*/}
-                                                            return(<li  key={i}>До события "{element.title}" {word[0]} {delta++} {word[1]}</li>)
-                                                        } else if(delta<8) {
-                                                            word[1] = ["дней"];
-                                                            return(<li  key={i}>До события "{element.title}" {word[0]} {delta++} {word[1]}</li>)
+                                                            return(<li  key={i}>До события "{element.title}" {word[0]} {Math.ceil(delta)} {word[1]}</li>)
+                                                        } else if(delta>=5 && delta<8) {
+                                                            word[1] = "дней";
+                                                            return(<li  key={i}>До события "{element.title}" {word[0]} {Math.ceil(delta)} {word[1]}</li>)
                                                             };
                                                     
                                                  };
@@ -47,7 +48,8 @@ class Reminder extends Component {
                                                 if(those <= Date.now()) {
                                                      those = new Date(element.end);
                                                      delta = Date.now() - those;
-                                                     delta = Math.round(delta / 1000 / 60 / 60/ 24);
+                                                     {/*delta = Math.round(delta / 1000 / 60 / 60/ 24);*/}
+                                                     delta = delta / 1000 / 60 / 60/ 24;
                                                     console.log('Delta <: ', delta, 'word:', word, 'title: ', element.title);
                                                      if((Date.now() <= those) || delta < 1 ) {
                                                          return(<li key={i}>{element.title} уже Сегодня</li>)

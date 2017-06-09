@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import { getContacts, addContact, ADD_CONTACT } from '../../../actions/contacts';
 import PropTypes from 'prop-types';
 
-class AddUser extends Component {
+class Modal extends Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
@@ -57,17 +57,14 @@ class AddUser extends Component {
             this.props.addContact(user).then((response) =>{
                 console.log(response);
                 const store = this.context.store;
-                // console.log("STORE:", store);
-                // console.log("store_dis", store.dispatch({type: ADD_CONTACT, payload: response.data}));
                 store.dispatch({type: ADD_CONTACT, payload: response.data}); 
-                // this.props.closeModal(true);
             }).catch((err) => {
                 console.log(err);
-                // this.props.closeModal(false);
             })
 
             setTimeout(() => this.props.update({
-                    data:this.props.data
+                    data:this.props.data,
+                    modal: false
                 }), 200);
 
             this.setState({name: '', phone: '', company:'', email: '', about: ''});
@@ -85,8 +82,15 @@ class AddUser extends Component {
 
     render() {
         let { errors } = this.state;
+        let { visibility } = this.props;
+
+        if(visibility){
         return(
-            <div className="left-side">
+            <div className="modal-container">
+                    <div className="xmodal-cont">
+                        <div className="close">
+                            <span className="close" onClick={this.props.closeModal}>x</span>
+                        </div>
                     <form className="form-horizontal" onSubmit={this.addContact}>
                         <div className="form-group">
                             <label className="col-sm-4" htmlFor="name">Name: </label>
@@ -124,12 +128,17 @@ class AddUser extends Component {
                             {errors && <span>User already exists!</span>} 
                         </div>
                     </form>   
-            </div>
-        )} 
+                    </div>
+                </div>
+            
+         ) } else {
+            return(<div></div>)
+        } 
+}
 }
 
 
-AddUser.contextTypes = {
+Modal.contextTypes = {
   store: PropTypes.object.isRequired
 }
 
@@ -138,4 +147,4 @@ export default connect(
       data: state.contactsPanel.users,
   }),
   { addContact, getContacts }
-)(AddUser)
+)(Modal)

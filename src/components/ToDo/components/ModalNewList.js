@@ -63,7 +63,7 @@ class ModalNewList extends Component {
                 <div className="modal-container">
                     <div className="xmodal">
                         <div className="close">
-                            <span  className = "close" onClick={this.props.closeModal}>x</span>
+                            <span className="close" onClick={this.props.closeModal}>x</span>
                         </div>
                         <form onSubmit={this.onSubmit}>
                             <h3>Add list</h3>
