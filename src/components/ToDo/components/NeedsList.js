@@ -60,7 +60,9 @@ class NeedsList extends Component {
                         <td onClick={this.onClick.bind(this, index)} style={{
                                     textDecoration: need.isCompleted ? 'line-through' : 'none'
                                   }}>{need.task}</td>
-                        <td className="bin" onClick={this.deleteTodo.bind(this, need.task)}>X</td>
+                        <td className="bin" onClick={this.deleteTodo.bind(this, need.task)}>
+                          <span className="del-btn"></span>
+                        </td>
                       </tr>)}
                 </tbody>
               </table>
@@ -84,7 +86,9 @@ class NeedsList extends Component {
                             style={{
                               textDecoration: need.isCompleted ? 'line-through' : 'none'
                             }}>{need.task}</td>
-                        <td className="bin" onClick={this.deleteTodo.bind(this, need.task)}>X</td>
+                        <td className="bin" onClick={this.deleteTodo.bind(this, need.task)}>
+                          <span className="del-btn"></span>
+                        </td>
 
                       </tr>)}
                 {/*</ul>*/}

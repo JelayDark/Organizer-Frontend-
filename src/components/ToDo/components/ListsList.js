@@ -54,7 +54,9 @@ class ListsList extends Component {
                 key={index}>
                 <td onClick={this.onClick.bind(this, index)}>{index + 1}</td>
                 <td onClick={this.onClick.bind(this, index)}>{list.name}</td>
-                <td onClick={this.deleteList.bind(this, list._id, index)}>X</td>
+                <td onClick={this.deleteList.bind(this, list._id, index)}>
+                  <div className="del-btn"></div>
+                </td>
               </tr>
               )}
           </tbody>

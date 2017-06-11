@@ -29,10 +29,10 @@ class Reminder extends Component {
                                                     console.log('Delta >: ', delta, 'word:', word, 'title: ', element.title);
                                                         if(delta>=0 && delta<=1) {
                                                             return(<li  key={i}>Событие "{element.title}" уже завтра</li>)
-                                                        } else if(delta>1 && delta<5){
+                                                        } else if(delta>1 && delta<=4){
                                                             {/*word = ["осталось", "дня"];*/}
                                                             return(<li  key={i}>До события "{element.title}" {word[0]} {Math.ceil(delta)} {word[1]}</li>)
-                                                        } else if(delta>=5 && delta<8) {
+                                                        } else if(delta>4 && delta<8) {
                                                             word[1] = "дней";
                                                             return(<li  key={i}>До события "{element.title}" {word[0]} {Math.ceil(delta)} {word[1]}</li>)
                                                             };
@@ -40,6 +40,9 @@ class Reminder extends Component {
                                                  };
                                                  })
                                                  }
+                                                 <div className="book book-left">
+
+                                                 </div>
 
                     </ul>
                     <ul className="remind-left" id="box6">
@@ -59,6 +62,9 @@ class Reminder extends Component {
                                                 
                                             })
                                             }
+                                            <div className="book book-right">
+
+                                                 </div>
                                             {/*<li className="reminder-type">TODAY</li>*/}
                         </ul>
                                             {/*{this.props.events.map(function (element, i) {

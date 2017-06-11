@@ -28,7 +28,9 @@ class EventData extends Component {
                 {/*<td>{event.end}</td>*/}
                 <td>{event.title}</td>
                 <td>{event.desc}</td>
-                <td onClick={this.deleteEvent.bind(this, event._id, index)}>X</td>
+                <td onClick={this.deleteEvent.bind(this, event._id, index)}>
+                  <span className="del-btn"></span>
+                </td>
             </tr>
           )
       }
@@ -38,7 +40,9 @@ class EventData extends Component {
             <td>{event.end}</td>
             <td>{event.title}</td>
             <td>{event.desc}</td>
-            <td onClick={this.deleteEvent.bind(this, event._id, index)}>X</td>
+            <td onClick={this.deleteEvent.bind(this, event._id, index)}>
+              <span className="del-btn"></span>
+            </td>
           </tr>
         )
     }

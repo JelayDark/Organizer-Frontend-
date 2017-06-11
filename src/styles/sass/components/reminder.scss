@@ -39,15 +39,31 @@
     color: #333;
     padding: 10px;
     text-align: center;
-    width: 300px;
+    width: 285px;
     height: 100px;
+    padding-right: 25px;
+    text-align: left;
+    font-weight: 500;
     overflow-y: scroll;
     text-indent: 0px;
-    border: 1px solid #888;
+    // border: 1px solid #888;
     -moz-transition: all 1s ease-in-out;
     -o-transition: all 1s ease-in-out;
     -webkit-transition: all 1s ease-in-out;
     cursor: pointer;
+    // position: relative;
+}
+    
+.book {
+    background-size: cover;
+    background: url('../../images/bookmark.png') center center;
+    height: 100px;
+    width: 15px;
+    position: absolute;
+    bottom:0;
+    // &-left {
+        right: 20px;
+    // }
 }
 
 #box5:hover, #box6:hover {

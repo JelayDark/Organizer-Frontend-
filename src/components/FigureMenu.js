@@ -50,7 +50,7 @@ class FigureMenu extends Component {
                                             <figure
                                                 className={page1}
                                                 onClick={this.setPage.bind(this, 0)}>
-                                                <img src="../../images/psd-4.jpg" alt=""/>
+                                                <img src="../images/today.png" alt=""/>
                                                 <dl>
                                                     <dt>Calendar</dt>
                                                     <dd>Shows your events in a calendar style</dd>
@@ -61,10 +61,10 @@ class FigureMenu extends Component {
                                             <figure
                                                 className={page3}
                                                 onClick={this.setPage.bind(this, 2)}>
-                                                <img src="../../images/psd-4.jpg" alt=""/>
+                                                <img src="../images/todo.png" alt=""/>
                                                 <dl>
                                                     <dt>To-Do Lists</dt>
-                                                    <dd>Here u can make ur to-do lists</dd>
+                                                    <dd>Here you can make and keep track of your to-do lists</dd>
                                                 </dl>
                                             </figure>
                                         </div>
@@ -72,10 +72,10 @@ class FigureMenu extends Component {
                                             <figure
                                                 className={page2}
                                                 onClick={this.setPage.bind(this, 1)}>
-                                                <img src="../../images/psd-4.jpg" alt=""/>
+                                                <img src="../images/datepicker.png" alt=""/>
                                                 <dl>
                                                     <dt>DatePicker</dt>
-                                                    <dd>Here u can make ur events</dd>
+                                                    <dd>In this menu point you can make events and add them to your main calendar</dd>
                                                 </dl>
                                             </figure>
                                         </div>
@@ -83,10 +83,10 @@ class FigureMenu extends Component {
                                             <figure
                                                 className={page4}
                                                 onClick={this.setPage.bind(this, 3)}>
-                                                <img src="../../images/psd-4.jpg" alt=""/>
+                                                <img src="../images/contacts.png" alt=""/>
                                                 <dl>
                                                     <dt>Contacts</dt>
-                                                    <dd>Your Contacts List</dd>
+                                                    <dd>Your Contacts List. Always near to you</dd>
                                                 </dl>
                                             </figure>
                                         </div>

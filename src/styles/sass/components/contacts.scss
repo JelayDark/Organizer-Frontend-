@@ -43,6 +43,9 @@
   overflow-y: scroll;
   margin-left: 8px;
   // margin-right: 20px;
+  td {
+    vertical-align: text-bottom!important;
+  }
 }
 
 .con-act {
@@ -51,4 +54,13 @@
 
 .con-searchbar {
   width: 550px;
+}
+
+.del-btn {
+  display: inline-block;
+  height: 22px;
+  width: 22px;
+  background: url("../../images/trash.ico") center center;
+  background-size: contain;
+  cursor: pointer;
 }

@@ -49,7 +49,9 @@ class UserData extends Component {
             <td onClick={() => this.props.update({active: index})}>{user.name}</td>
             <td onClick={() => this.props.update({active: index})}>{user.company}</td>
             <td onClick={() => this.props.update({active: index})}>{user.phone}</td>
-            <td className = "close" onClick={this.deleteUser.bind(this, user._id, index)}>X</td>
+            <td onClick={this.deleteUser.bind(this, user._id, index)}>
+              <span className="del-btn"></span>
+            </td>
           </tr>
         )
     }

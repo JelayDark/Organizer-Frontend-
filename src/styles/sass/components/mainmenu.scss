@@ -6,7 +6,7 @@ figure {
     line-height:auto;
     position: relative;
     padding: 0 !important;
-    margin: 15px;
+    margin: 15px 15px 10px 30px;
     transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
@@ -29,8 +29,8 @@ figure dl{
 
 
 figure img {
-    height: 90%;
-    width: 90%;
+    height: 60%;
+    width: 60%;
 	margin:5%;
 }
 
