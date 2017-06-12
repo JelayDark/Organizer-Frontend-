@@ -2,13 +2,14 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { getContacts, addContact, ADD_CONTACT } from '../../../actions/contacts';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 class AddUser extends Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
             data: this.props.data,
-            errors: null,
+            error: null,
             name: '',
             phone: '',
             company:'',
@@ -70,10 +71,11 @@ class AddUser extends Component {
                     data:this.props.data
                 }), 200);
 
-            this.setState({name: '', phone: '', company:'', email: '', about: ''});
+            this.setState({name: '', phone: '', company:'', email: '', about: '', error: null});
 
         } else {
-            return <div></div>
+            this.setState({error: "write something "});
+            return <div></div>;
         }
         
     }
@@ -84,14 +86,18 @@ class AddUser extends Component {
     }
 
     render() {
-        let { errors } = this.state;
+        let { error } = this.state;
+        let nameClass = classNames({
+            'error': this.state.error,
+        });
+
         return(
             <div className="left-side">
                     <form className="form-horizontal" onSubmit={this.addContact}>
                         <div className="form-group">
                             <label className="col-sm-4" htmlFor="name">Name: </label>
                             <div className="col-sm-8">
-                                <input className="form-control" id="name" type="text" placeholder="Name" name="name" onChange={this.onChange}/>
+                                <input className={nameClass + " form-control"} id="name" type="text" placeholder={"Name" || error} name="name" onChange={this.onChange}/>
                             </div>
                         </div>
                         <div className="form-group">
@@ -120,9 +126,9 @@ class AddUser extends Component {
                         </div>
                         {/*<div className="but-left"><button onClick={this.addAvatar}>Add Avatar</button></div>*/}
                         <div><button className="btn btn-primary" type="submit">Add Contact</button></div>
-                        <div className="errors">
+                        {/*<div className="errors">
                             {errors && <span>User already exists!</span>} 
-                        </div>
+                        </div>*/}
                     </form>   
             </div>
         )} 

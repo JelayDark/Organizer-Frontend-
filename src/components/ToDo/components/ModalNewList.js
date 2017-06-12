@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createList, CREATE_LIST } from '../../../actions/lists';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 class ModalNewList extends Component {
     constructor(props, context) {
         super(props, context);
 
         this.state = {
-            // errors: null,
+            error: null,
             name: ''
         }
 
@@ -37,26 +38,33 @@ class ModalNewList extends Component {
 
             }
 
+            document.querySelector('input').value=null;
+
             this.props.createList(list).then((response) =>{
                 console.log(response);
                 const store = this.context.store;
                 store.dispatch({type: CREATE_LIST, payload: response.data}); 
                 this.props.closeModal(true);
+                this.setState({name: '', error: null});
             }).catch((err) => {
                 console.log(err);
-                this.props.closeModal(false);
+                // this.props.closeModal(false);
+                this.setState({error: "List such as this already exists"});
             })
 
-            this.setState({name: ''});
 
         } else {
+            this.setState({error: 'write something'});
             return <div></div>
         }
     }
 
     render() {
         let {visibility} = this.props;
-        let {errors} = this.state;
+        let {error} = this.state;
+        let nameClass = classNames({
+            'error': this.state.error,
+        });
 
         if (visibility) {
             return (
@@ -69,11 +77,11 @@ class ModalNewList extends Component {
                             <h3>Add list</h3>
                             <div className="form-group">
                             <label htmlFor="name" >Type list name here:</label>
-                                <input className="form-control" onChange={this.onChange} type="text" placeholder="ListName" id="name" name="name"/>
+                                <input className={nameClass + " form-control"} onChange={this.onChange} type="text" placeholder={error || "ListName"} id="name" name="name"/>
                             </div>
-                            <div className="errors">
+                            {/*<div className="errors">
                                 {errors && <span>List already exists!</span>}
-                            </div>
+                            </div>*/}
                             <div>
                                 <button className="btn btn-default" type="submit">Add list</button>
                             </div>

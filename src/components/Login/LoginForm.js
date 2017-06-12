@@ -15,7 +15,8 @@ class Login extends Component {
                 password: false
             },
             isLoading: false,
-            shake: false
+            shake: false,
+            email: ''
         }
 
         this.submitLogin = this.submitLogin.bind(this);
@@ -113,7 +114,7 @@ class Login extends Component {
             form.style.display = "none"
             let formToggle = document.querySelector(".register-form");
             formToggle.style.display = "block";
-            formToggle.style.height = "212px";
+            formToggle.style.height = "264px";
             formToggle.style.opacity = 1;
         }, 1000);
     }
@@ -121,7 +122,7 @@ class Login extends Component {
 
 
     render() {
-        const {login, password, isLoading} = this.state;
+        const {login, password, isLoading, email} = this.state;
 
         let loginClass = classNames({
             'error': this.state.errors.login,
@@ -141,15 +142,16 @@ class Login extends Component {
             <div className="login-page">
             <div className="form">
                 <form className="register-form" onSubmit={this.submitLogin}>
-                    <input type="text" name="login" placeholder="login" value={login} onChange={this.onChange}/>
-                    <input type="password" placeholder="password" name="password" value={password} onChange={this.onChange}/>
+                    <input className={loginClass} type="text" name="login" placeholder="login" value={login} onChange={this.onChange}/>
+                    <input className={passwordClass} type="password" placeholder="password" name="password" value={password} onChange={this.onChange}/>
+                    <input type="email" placeholder="for@example.ru" name="email" value={email} onChange={this.onChange}/>
                     {/*<input type="text" placeholder="email address"/>*/}
                     <button disabled={isLoading}>create</button>
                     <p className="message">Already registered? <a href="#" onClick={this.toggleReg.bind(this)}>Sign In</a></p>
                 </form>
                 <form className="login-form" onSubmit={this.submitLogin}>
-                    <input type="text" name="login" placeholder="login" value={login} onChange={this.onChange}/>
-                    <input type="password" placeholder="password" name="password" value={password} onChange={this.onChange}/>
+                    <input className={loginClass} type="text" name="login" placeholder="login" value={login} onChange={this.onChange}/>
+                    <input className={passwordClass} type="password" placeholder="password" name="password" value={password} onChange={this.onChange}/>
                     <button type="submit" disabled={isLoading}>login</button>
                     <p className="message">Not registered? <a href="#" onClick={this.toggleLog.bind(this)}>Create an account</a></p>
                 </form>

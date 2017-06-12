@@ -2,13 +2,14 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { getContacts, addContact, ADD_CONTACT } from '../../../actions/contacts';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 class Modal extends Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
             data: this.props.data,
-            errors: null,
+            error: null,
             name: '',
             phone: '',
             company:'',
@@ -67,9 +68,10 @@ class Modal extends Component {
                     modal: false
                 }), 200);
 
-            this.setState({name: '', phone: '', company:'', email: '', about: ''});
+            this.setState({name: '', phone: '', company:'', email: '', about: '', error: null});
 
         } else {
+            this.setState({error: "write something "});
             return <div></div>
         }
         
@@ -81,7 +83,10 @@ class Modal extends Component {
     }
 
     render() {
-        let { errors } = this.state;
+        let { error } = this.state;
+        let nameClass = classNames({
+            'error': this.state.error,
+        });
         let { visibility } = this.props;
 
         if(visibility){
@@ -95,7 +100,7 @@ class Modal extends Component {
                         <div className="form-group">
                             <label className="col-sm-4" htmlFor="name">Name: </label>
                             <div className="col-sm-8">
-                                <input className="form-control" id="name" type="text" placeholder="Name" name="name" onChange={this.onChange}/>
+                                <input className={nameClass + " form-control"} id="name" type="text" placeholder={error || "Name"} name="name" onChange={this.onChange}/>
                             </div>
                         </div>
                         <div className="form-group">
@@ -124,9 +129,9 @@ class Modal extends Component {
                         </div>
                         {/*<div className="but-left"><button onClick={this.addAvatar}>Add Avatar</button></div>*/}
                         <div><button className="btn btn-primary" type="submit">Add Contact</button></div>
-                        <div className="errors">
+                        {/*<div className="errors">
                             {errors && <span>User already exists!</span>} 
-                        </div>
+                        </div>*/}
                     </form>   
                     </div>
                 </div>

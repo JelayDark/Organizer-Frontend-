@@ -8,6 +8,13 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 
 import { Router, Route, browserHistory } from 'react-router';
+// import {
+//   // BrowserRouter as Router,
+//   // Route,
+//   Link,
+//   Redirect,
+//   withRouter
+// } from 'react-router-dom';
 import { syncHistoryWithStore } from 'react-router-redux';
 
 import reducer from './reducers';
@@ -33,6 +40,8 @@ ReactDOM.render(
     <Router history={history}>
       <Route path="/" component={App} />
       <Route path="/login" component={Login} />
+      <Route path="/logout" component={Login} />
+      <Route path="/signup" component={Login} />
       {/*<Route path="/contacts" component={Contacts} />*/}
       <Route path="*" component={NotFound} />
     </Router>

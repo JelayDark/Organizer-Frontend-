@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import { addEvent } from '../../actions/events';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import classNames from 'classnames';
 import AllEvents from './components/AllEvents';
 
 import 'react-datepicker/dist/react-datepicker.css';
@@ -19,7 +20,8 @@ class DatePicker extends Component {
             end: moment().format('YYYY/MM/DD'),
             title: '',
             desc: '',
-            data: ""
+            data: "",
+            error: null
         }
 
         setTimeout(() => this.setState({data: this.props.events}), 150);
@@ -56,10 +58,11 @@ class DatePicker extends Component {
             }
 
             this.props.addEvent(event);
-        this.setState({title: '', desc: ''});
+        this.setState({title: '', desc: '', error: null});
 
         setTimeout(() => this.setState({data: this.props.events}), 350);
-        } else {
+    } else {
+            this.setState({error: "You must write event's title here"});
             return (<h2>Укажите Название События</h2>);
         }
 
@@ -78,7 +81,10 @@ class DatePicker extends Component {
     }
 
     render() {
-        let { errors } = this.state;
+        let { error } = this.state;
+        let nameClass = classNames({
+            'error': this.state.error,
+        });
 
             {/*<Grid fluid>
                         <Row >
@@ -98,16 +104,16 @@ class DatePicker extends Component {
                                                 <TypePicker type={this.state.show} update={this.updateDate.bind(this)}/>
                                                 <div>
                                                     <label htmlFor="title" title="Название события/Reason">Event's title [?]:</label>
-                                                    <input className="form-control" id="title" type="text" placeholder="Title" name="title" onChange={this.onChange}/>
+                                                    <input className={ nameClass + " form-control"} id="title" type="text" placeholder={error || "Title"} name="title" onChange={this.onChange}/>
                                                 </div>
                                                 <div>
                                                     <label htmlFor="desc" title="Описание события">Description [?]:</label>
                                                         <textarea id="desc" className="form-control" rows="10" cols="45" name="desc" onChange={this.onChange}></textarea>
                                                 </div>
                                                 <div><button className="btn btn-primary pick-btn" type="submit">Добавить событие</button></div>
-                                                <div className="errors">
+                                                {/*<div className="errors">
                                                     {errors && <span>User already exists!</span>} 
-                                                </div>
+                                                </div>*/}
                                             </form>  
                                         </Col>
                                         <Col lg={5}>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { deleteEvent, editEvent } from '../../../actions/events';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 class ModalView extends Component {
     constructor(props, context) {
@@ -10,6 +11,7 @@ class ModalView extends Component {
         this.state = {
             title: '',
             desc: '',
+            error: null
         }
 
         this.stopEdit = this.stopEdit.bind(this);
@@ -46,11 +48,13 @@ class ModalView extends Component {
             }
 
             this.props.editEvent(event);
+            this.setState({error: null});
+            this.props.closeModal();
 
         } else {
+            this.setState({error: "write something"});
             return <div></div>
         }
-        this.props.closeModal();
     }
 
     // deleteEvent() {
@@ -60,10 +64,13 @@ class ModalView extends Component {
 
     render() {
         let {visibility} = this.props;
-        let {errors} = this.state;
+        let {error} = this.state;
         // let {editing} = this.state;
         let editing = this.props.editing;
         const event = this.props.event;
+        let nameClass = classNames({
+            'error': this.state.error,
+        });
 
         if (visibility) {
             let evDate = "";
@@ -96,7 +103,7 @@ class ModalView extends Component {
                                 </div>
                                     <form onSubmit={this.stopEdit}>
                                         <p>{evDate}</p>
-                                        <p><input className="form-control" type="text" defaultValue={this.props.event.title} name="title" onChange={this.onChange}/></p>
+                                        <p><input className={nameClass + " form-control"} placeholder={error || "Title"} type="text" defaultValue={this.props.event.title} name="title" onChange={this.onChange}/></p>
                                         <p><textarea className="form-control" type="text" defaultValue={this.props.event.desc} name="desc" onChange={this.onChange}/></p>
                                         
                                             {/*<button onClick={this.deleteEvent}>Delete</button> */}

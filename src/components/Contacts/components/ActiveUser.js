@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { editUser, deleteUser } from '../../../actions/contacts';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 
 class ActiveUser extends Component {
@@ -14,7 +15,8 @@ class ActiveUser extends Component {
           phone: '',
           company: '',
           email: '',
-          about: ''
+          about: '',
+          error: null
     }
     console.log("ACTIVE PROPS:", props);
 
@@ -62,15 +64,16 @@ class ActiveUser extends Component {
             }
 
             this.props.editUser(user);
-            this.setState({editing:false});
+            this.setState({editing:false, error: null});
 
             setTimeout(() =>               
               this.props.update({
                     data:this.props.users
-                }), 150);
+                }), 350);
 
         } else {
-            return <div></div>
+            this.setState({error: "write something "});
+            return <div></div>;
         }
         
   }
@@ -99,10 +102,15 @@ class ActiveUser extends Component {
   }
 
   render() {
+    
+      let nameClass = classNames({
+            'error': this.state.error,
+        });
 
       if(!this.props.data || !this.props.data[this.props.active]) {return(<h3>Nothing Found =(</h3>);}
       
       const user = this.props.data[this.props.active];
+      const {error} = this.state; 
 
       if(!this.state.editing) {
         return(
@@ -131,6 +139,7 @@ class ActiveUser extends Component {
                       </tbody>
                     </table>
                     <p><b>Information:</b></p><p> {user.about}</p>
+                    {/*<span className="errormess">{error}</span>*/}
               </div>
             </div>
       )} else {
@@ -143,7 +152,13 @@ class ActiveUser extends Component {
                       <img style={{maxWidth: 100}} src={`images/${user.image}.svg`} alt=""/>
 
                       <div className="thimbnail-caption">
-                        <h3><input className="form-control" type="text" defaultValue={user.name} name="name" onChange={this.onChange}/></h3>
+                        <h3><input className={nameClass + " form-control"}
+                            type="text" 
+                            defaultValue={user.name} 
+                            placeholder={error}
+                            name="name" 
+                            onChange={this.onChange}
+                            /></h3>
 
                         <table className="user-info table table-responsive">
                           <tbody>
@@ -165,6 +180,7 @@ class ActiveUser extends Component {
                         <p><textarea className="form-control" defaultValue={user.about} name="about" onChange={this.onChange}/></p>
                       </div>
                     </form>
+                    {/*<span className="errormess">{error}</span>*/}
                   </div>
             )
 
